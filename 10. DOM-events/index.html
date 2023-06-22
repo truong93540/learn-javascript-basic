@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="console.log(Math.random())">DOM events 1</h1>
+    
+    <h1 onmouseover="console.log(Math.random())">DOM events 2</h1>
+    <!-- this ở đây trả về chính cái node element mà mình click -->
+    <h1 onclick="console.log(this)">DOM events 3</h1>
+
+    <h1 onclick="console.log(this.innerText)">DOM events 3</h1>
+
+    <!-- đây gọi là hiện tượng nổi bọt -->
+    <h1 onclick="console.log(this)">
+        <span onclick="console.log(this)">DOM events 4</span>
+    </h1>
+
+    <h1 class="heading">DOM events 5</h1>
+    
+    <script src="./main.js"></script>
+</body>
+</html>

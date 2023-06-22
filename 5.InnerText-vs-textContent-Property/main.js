@@ -16,7 +16,7 @@ headingElement.textContent = 'New heading1'
 //  - là thuộc tính của element node
 //  - khi thêm vào sẽ tự chuyển đổi các kí tự thành mã HTML(enter thành br)
 // textContent:
-//  - trả về nội dung text thật của nó nằm trong DOM
+//  - lấy ra nội dung text thật của nó nằm trong DOM
 //  - Thuộc tính tồn tại trên cả element node và tồn tại trên cả text node
 //  - khi thêm vào sẽ lược bỏ các kí tự thừa(dấu cách, enter,...)
 var headingElement1 = document.querySelector('.heading1')
