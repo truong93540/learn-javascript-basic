@@ -5,7 +5,7 @@
         some(): một phần tử thỏa mãn điều gì đó
         find(): tìm kiếm phần tử thỏa mãn điều kiện
         filter(): tìm kiếm trả về tất cả các phần tử thỏa mãn
-        map()
+        map(): 
         reduce()
 */
 
@@ -55,9 +55,9 @@ var courses = [
 
 // console.log(isFree)
 
-// var course = courses.find(function(course, index) {
-//     return course.name === 'Ruby';
-// });
+var course = courses.find(function(course, index) {
+    return course.name === 'Ruby';
+});
 
 // console.log(course);
 
@@ -108,6 +108,23 @@ var courses = [
 
 
 
+// Array map() method
+// function coursesHander(course, index, originArray) {// trả về cái gì thì nó lấy cái đó làm element
+//     // console.log(courses);
+//     return {
+//         id: course.id,
+//         name: `Khoa hoc: ${course.name}`,
+//         coin: course.coin,
+//         coinText: `Gia: ${course.coin}`,
+//         index: index,
+//         originArray: originArray
+//     }
+// };
+
+// var newCourses = courses.map(coursesHander);
+
+// console.log(newCourses)
+
 // HTML DOM
 
 // Có 3 thành phần
@@ -130,3 +147,39 @@ var courses = [
 // Mỗi khi muốn truy xuất vào các thành phần nhỏ thì phải đi qua document
 
 document.write('HELLO GUYS!') // thêm chuỗi vào vị trí mà mình link
+
+
+
+//Object constructor
+
+// function User(firstName, lastName, avatar) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.avatar = avatar;
+
+//     this.getName = function() {
+//         return `${this.firstName} ${this.lastName}`
+//     }
+// }
+
+// var author = new User('Son', 'Dang', 'Avatar');
+// var user = new User('Van', 'Truong', 'Avatar');
+
+// author.title = 'Chia sẻ dạo tại F8';
+// user.comment = 'đây là comment'
+
+// console.log(author.getName())
+// console.log(author.getName())
+
+
+
+// String/Array includes() method - kiểm tra xem phần tử có nằm trong mảng hoặc chuỗi hay không
+
+var title = 'Responsive web disign';
+
+console.log(title.includes('Responsive', 0))// cái thứ 2 là vị trí tìm kiếm, không có thì = 0
+
+var courses = ['Javascript', 'PHP', 'Dart'];
+
+console.log(courses.includes('Javascript', 0))
+

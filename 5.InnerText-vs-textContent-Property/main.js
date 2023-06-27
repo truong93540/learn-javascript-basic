@@ -28,5 +28,5 @@ headingElement.textContent = `// cả 2 chỉ có tác dụng thêm được tex
 <i>New heading<i/>
 `
 headingElement.innerText = `
-New heading<i/>
+<i>New heading<i/>
 `

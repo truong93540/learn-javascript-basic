@@ -27,14 +27,14 @@ headingElement.onclick = function(event) {
     console.log(event)
 }
 
-headingElement.onclick = function(event) {
-    console.log(event.target)// trả về chính cái thằng mà mình click vào
-}
+// headingElement.onclick = function(event) {
+//     console.log(event.target)// trả về chính cái thằng mà mình click vào
+// }
 
-var h1Element = document.querySelectorAll('h1')
+// var h1Element = document.querySelectorAll('h1')
 
-for(var i = 0; i < h1Element.length; i++){
-    h1Element[i].onclick = function(e) {
-        console.log(e.target)
-    }
-}
+// for(var i = 0; i < h1Element.length; i++){
+//     h1Element[i].onclick = function(e) {
+//         console.log(e.target)
+//     }
+// }

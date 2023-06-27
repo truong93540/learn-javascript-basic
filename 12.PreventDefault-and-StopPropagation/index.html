@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        ul {
+            display: none;
+        }
+        input:focus ~ ul {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <a href="https://f8.edu.vn">
@@ -13,6 +21,18 @@
     <a href="https://google.com.vn">
         Tìm kiếm
     </a>
+    <br>
+    <input type="text" placeholder="Tìm kiếm">
+    <ul>
+        <li>Javascript</li>
+        <li>PHP</li>
+        <li>Golang</li>
+    </ul>
+
+    <div>
+        DIV
+        <button>Click me!</button>
+    </div>
 
     <script src="./main.js"></script>
 </body>
