@@ -114,29 +114,29 @@
 
 
 
-var promise2 = new Promise(
-    function(resolve, reject) {
-        resolve()
-    }
-)
+// var promise2 = new Promise(
+//     function(resolve, reject) {
+//         resolve()
+//     }
+// )
     
-promise2
-    .then(function(){//nếu không return promise thì sẽ chạy luông thằng bên dưới
-        return new Promise(function(resolve) {
-            setTimeout(function() {
-                resolve([1, 2, 3])
-            }, 3000)
-        })
-    })
-    .then(function(data){
-        // console.log(data)
-    })
-    .catch(function(error) {
-        // console.log(error)
-    })
-    .finally(function() {
-        // console.log('Done!')
-    })
+// promise2
+//     .then(function(){//nếu không return promise thì sẽ chạy luông thằng bên dưới
+//         return new Promise(function(resolve) {
+//             setTimeout(function() {
+//                 resolve([1, 2, 3])
+//             }, 3000)
+//         })
+//     })
+//     .then(function(data){
+//         // console.log(data)
+//     })
+//     .catch(function(error) {
+//         // console.log(error)
+//     })
+//     .finally(function() {
+//         // console.log('Done!')
+//     })
 
 
 
@@ -364,7 +364,12 @@ var comments = [
 
 // Fake API
 
-//Tự tay code (c1 sử dụng callback)
+// 1. Array
+// 2. Function, callback
+// 3. Promise
+// 4. DOM
+
+// Tự tay code (c1 sử dụng callback)
 // function getComment(comments, user) {
 //     var listComment = [];
 //     var userList = comments.map(function(comment, index) {
@@ -373,7 +378,6 @@ var comments = [
 //             content: comment.content
 //         }
 //     })
-//     var nameList = [];
 //     for(var i = 0; i < userList.length; i++){
 //         var userName = user.find(function(user) {
 //             return user.id === userList[i].user_id
@@ -390,4 +394,89 @@ var comments = [
 
 // getComment(comments, users)
 
-console.log(users.id)
+
+// Cách anh Sơn làm:
+
+// Callback hell
+// Promise hell
+
+// function getComment() {
+//     return new Promise(function(resolve) {
+//         setTimeout(function() {
+//             resolve(comments)
+//         }, 1000)
+//     })
+// }
+
+// function getUsersByIds(userIds) {
+//     return new Promise(function(resolve) {
+//         var result = users.filter(function(user) {
+//             return userIds.includes(user.id)
+//         })
+//         setTimeout(function() {
+//             resolve(result)
+//         }, 1000)
+//     })
+// }
+
+// getComment()
+//     .then(function(comment) {
+//         var userIds = comment.map(function(comment) {
+//             return comment.user_id
+//         })
+//         return getUsersByIds(userIds)
+//             .then(function(users) {
+//                 return {
+//                     user: users,
+//                     comments: comments
+//                 }
+
+//             })
+//     })
+//     .then(function(data) {
+//         var commentBlock = document.getElementById('comment-block')
+//         var html = ''
+//         data.comments.forEach(function(comment) {
+//             var user = data.user.find(function(user) {
+//                 return user.id === comment.user_id
+//             })
+//             html += `<li>${user.name}: ${comment.content}</li>`;
+//         })
+//         commentBlock.innerHTML = html
+//     })
+
+
+// Cách mình tự làm bằng promise
+
+var getComment = new Promise(function(resolve) {
+    return setTimeout(function() {
+        resolve(comments)
+    }, 1000)
+})
+getComment
+    .then(function(listComment) {
+        var listUser_id = []
+        listComment.forEach(function(data) {
+            listUser_id.push(data.user_id)
+        })
+        return listUser_id
+    })
+    .then(function(data) {
+        var listUser = users.filter(function(user) {
+            return data.includes(user.id)
+        })
+        return listUser
+    })
+    .then(function(data) {
+        let result = [];
+        comments.forEach(function(comment) {
+            var Name = data.find(function(user) {
+                return comment.user_id === user.id
+            })
+            result.push(`<li>${Name.name}: ${comment.content}</li>`)
+        })
+        console.log(result)
+        var getCommentById = document.getElementById('comment-block')
+        console.log(getCommentById)
+        getCommentById.innerHTML = result.join('')
+    })

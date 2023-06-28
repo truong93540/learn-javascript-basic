@@ -55,17 +55,17 @@ var courses = [
 
 // console.log(isFree)
 
-var course = courses.find(function(course, index) {
-    return course.name === 'Ruby';
-});
-
-// console.log(course);
-
-// var listCourse = courses.filter(function(course, index) {
+// var course = courses.find(function(course, index) {
 //     return course.name === 'Ruby';
 // });
 
-// console.log(listCourse);
+// console.log(course);
+
+var listCourse = courses.filter(function(course, index) {
+    return course.name === 'Ruby';
+});
+
+console.log(listCourse);
 
 
 // Tự tạo ra phương thức some
