@@ -1,7 +1,10 @@
 var boxElement = document.querySelector('.box')
 
 // khi ta cần tìm việc gì mà không thấy thì console.log để tìm xem có thuộc tính mà tâ cần không
-console.log([boxElement])// đây là object nhưng trình duyệt tự động chuyển sang dạng element node
+// console.log([boxElement])// đây là object nhưng trình duyệt tự động chuyển sang dạng element node
+
+var inputElement = document.querySelector('input')
+console.log([inputElement])
 
 /*  Những thuộc tính cần để ý
     clientHeight: kích thước chiều cao của element

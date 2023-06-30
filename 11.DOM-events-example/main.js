@@ -10,7 +10,7 @@ var inputValue;
 var inputElement = document.querySelector('input[type="text"]')
 
 inputElement.onchange = function(e) {//diễn ra khi thay đổi value, chạy khi bỏ focus
-    // console.log(e.target.value)
+    console.log(e.target.value)
 }
 
 inputElement.oninput = function(e) {// gõ đến đâu ăn đến đó luôn
@@ -21,13 +21,13 @@ inputElement.oninput = function(e) {// gõ đến đâu ăn đến đó luôn
 var checkboxElement = document.querySelector('input[type="checkbox"]')
 
 checkboxElement.onchange = function(e) {
-    console.log(e.target.checked)
+    // console.log(e.target.checked)
 }
 
 var selectElement = document.querySelector('select')
 
 selectElement.onchange = function(e) {
-    console.log(e.target.value)
+    // console.log(e.target.value)
 }
 
 inputElement.onkeydown = function(e) {
@@ -39,7 +39,7 @@ inputElement.onkeyup = function(e) {
 }
 
 inputElement.onkeyup = function(e) {
-    console.log(e.which)// lấy ra cái mã số kí tự của bàn phím
+    // console.log(e.which)// lấy ra cái mã số kí tự của bàn phím
 
     switch(e.which) {
         case 27:
@@ -49,13 +49,13 @@ inputElement.onkeyup = function(e) {
 }
 
 document.onkeydown = function(e) {
-    console.log(e)
+    // console.log(e)
     switch(e.which) {
         case 27:
-            console.log('Exit')
+            // console.log('Exit')
             break;
         case 13:
-            console.log('SEEN CHAT')
+            // console.log('SEEN CHAT')
     }
 }
 
