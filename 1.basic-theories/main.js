@@ -183,3 +183,23 @@ var courses = ['Javascript', 'PHP', 'Dart'];
 
 console.log(courses.includes('Javascript', 0))
 
+
+
+// câu lệnh điều kiện if
+// Các giá trị là false khi convert sang boolean:
+// 0
+// ''
+// null
+// undefined
+// NaN
+// false
+
+
+
+// Arguments?
+
+function witeLog() {
+    console.log(arguments)// trả về các tham số được truyền vào
+}
+
+witeLog('Log 1', 'Log 2', 'Log 3')
