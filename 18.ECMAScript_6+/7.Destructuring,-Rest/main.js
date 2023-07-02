@@ -28,6 +28,7 @@ var course = {
     }
 }
 
+
 // var { name, price, image } = course;// phải gọi đúng key và không cần lần lượt
 // console.log(name, price, image)
 
@@ -42,13 +43,36 @@ var course = {
 // console.log(parentName)
 // console.log(childName)
 
-var { name, description = 'default description' } = course // gán giá trị mặc định khi không có
-console.log(name)
-console.log(description)
+
+// var { name, description = 'default description' } = course // gán giá trị mặc định khi không có
+// console.log(name)
+// console.log(description)
 
 
-function logger(...params) {
+function logger(a, b, ...params) {
     console.log(params)
 }
 
-logger(1, 2, 3, 4, 5, 6, 7, 8)
+logger(1, 2, 3, 4, 5)
+
+
+// function logger( { name, price, ...rest} ) {
+//     console.log(name);
+//     console.log(price);
+//     console.log(rest)
+// }
+
+// logger({
+//     name: 'Javascript',
+//     price: 1000,
+//     description:'Description content'
+// })
+
+
+// function logger([a, b, ...rest]) {
+//     console.log(a)
+//     console.log(b)
+//     console.log(rest)
+// }
+
+// logger([2, 6, 12, 3, 4, 4])

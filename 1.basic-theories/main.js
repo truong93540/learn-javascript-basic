@@ -61,11 +61,11 @@ var courses = [
 
 // console.log(course);
 
-var listCourse = courses.filter(function(course, index) {
-    return course.name === 'Ruby';
-});
+// var listCourse = courses.filter(function(course, index) {
+//     return course.name === 'Ruby';
+// });
 
-console.log(listCourse);
+// console.log(listCourse);
 
 
 // Tự tạo ra phương thức some
@@ -124,6 +124,12 @@ console.log(listCourse);
 // var newCourses = courses.map(coursesHander);
 
 // console.log(newCourses)
+
+
+
+// reduce
+
+
 
 // HTML DOM
 
