@@ -1,3 +1,51 @@
+/* 
+Làm việc với mảng:
+1. To string
+2. Join
+3. Pop
+4. Push
+5. Shift
+6. Unshift
+7. Splicing
+8. Concat
+9. Slicing
+*/
+
+var languages = [
+    'Javascript',
+    'PHP',
+    'Ruby',
+]
+
+var languages2 = [
+    'Dart',
+    'Ruby'
+]
+// console.log(languages.toString())// Chuyển sang dạng chuỗi
+
+// console.log(languages.join(' - '))
+
+// console.log(languages.pop()) // xóa phần tử ở cuối mảng và trả về phần tử đã xóa
+// console.log(languages)
+
+// console.log(languages.push('Dart', 'Java'))// thêm 1 hoặc nhiều phần tử vào cuối và trả về độ dài của mảng
+// console.log(languages)
+
+// console.log(languages.shift()) // Xóa phần tử ở đầu mảng và trả về phần tử đã xóa
+// console.log(languages)
+
+// console.log(languages.unshift('Dart', 'Java')) //thêm 1 hoặc nhiều phần tử vào đầu mảng và trả về độ dài của mảng
+// console.log(languages)
+
+// languages.splice(1, 1, 'Dart') // tham số 1: xóa từ phần tử nào, tham số 2: xóa bao nhiêu phần tử, tham số 3: chèn vào vị trí 1
+// console.log(languages)
+
+// console.log(languages.concat(languages2))
+
+// console.log(languages.slice(1, 2)) // cắt 1 vài element của mảng, tham số 1 và 2 là vị trí bắt đầu cắt và vị trí kết thúc cắt
+
+
+
 /*
     Array methods:
         forEach(): sử dụng để duyệt qua từng phần tử của mảng
@@ -13,7 +61,7 @@ var courses = [
     {
         id: 1,
         name: 'Javascript',
-        coin: 0
+        coin: 100
     },
     {
         id: 2,
@@ -126,11 +174,24 @@ var courses = [
 // console.log(newCourses)
 
 
-
 // reduce
+var i = 0;
+// trong hàm này return cái gì thì biến tích trữ bằng cái đó
+function coinHandler(accumulator, currentValue, currentIndex, originArray) { // accumulator là biến lưu trữ, currentValue là giá trị hiện tại
+    i++;
+    var total = accumulator + currentValue.coin;
+    console.table({
+        'Lượt chạy' : i,
+        'Biến tích trữ ': accumulator,
+        'Giá khóa học ':  currentValue.coin,
+        'Tích trữ được ': total
+    })
+    return total
+}
 
+var totalCoin = courses.reduce(coinHandler, 0); // 0 là giá trị khởi tạo
 
-
+console.log(totalCoin)
 // HTML DOM
 
 // Có 3 thành phần
@@ -181,13 +242,13 @@ document.write('HELLO GUYS!') // thêm chuỗi vào vị trí mà mình link
 
 // String/Array includes() method - kiểm tra xem phần tử có nằm trong mảng hoặc chuỗi hay không
 
-var title = 'Responsive web disign';
+// var title = 'Responsive web disign';
 
-console.log(title.includes('Responsive', 0))// cái thứ 2 là vị trí tìm kiếm, không có thì = 0
+// console.log(title.includes('Responsive', 0))// cái thứ 2 là vị trí tìm kiếm, không có thì = 0
 
-var courses = ['Javascript', 'PHP', 'Dart'];
+// var courses = ['Javascript', 'PHP', 'Dart'];
 
-console.log(courses.includes('Javascript', 0))
+// console.log(courses.includes('Javascript', 0))
 
 
 
@@ -204,8 +265,8 @@ console.log(courses.includes('Javascript', 0))
 
 // Arguments?
 
-function witeLog() {
-    console.log(arguments)// trả về các tham số được truyền vào
-}
+// function witeLog() {
+//     console.log(arguments)// trả về các tham số được truyền vào
+// }
 
-witeLog('Log 1', 'Log 2', 'Log 3')
+// witeLog('Log 1', 'Log 2', 'Log 3')
