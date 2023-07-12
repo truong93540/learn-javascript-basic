@@ -96,12 +96,12 @@ var courses = [
 
 // console.log(isFree)
 
-// var isFree = courses.some(function(course, index) {
-//     console.log(index)
-//     return course.coin === 0;
-// })
+var isFree = courses.some(function(course, index) {
+    console.log(index)
+    return course.coin === 0;
+})
 
-// console.log(isFree)
+console.log(isFree)
 
 // var course = courses.find(function(course, index) {
 //     return course.name === 'Ruby';
@@ -242,9 +242,9 @@ document.write('HELLO GUYS!') // thêm chuỗi vào vị trí mà mình link
 
 // String/Array includes() method - kiểm tra xem phần tử có nằm trong mảng hoặc chuỗi hay không
 
-// var title = 'Responsive web disign';
+var title = 'Responsive web disign';
 
-// console.log(title.includes('Responsive', 0))// cái thứ 2 là vị trí tìm kiếm, không có thì = 0
+console.log(title.includes('Responsive', 0))// cái thứ 2 là vị trí tìm kiếm, không có thì = 0
 
 // var courses = ['Javascript', 'PHP', 'Dart'];
 

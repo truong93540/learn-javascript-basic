@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./assets/fontawesome-free-6.4.0-web/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="list-navbar">
+            <nav class="navbar-item selected" >
+                <i class="fa-solid fa-code"></i>
+                React
+                <div class="line-navbar-drift"></div>
+            </nav>
+            <nav class="navbar-item">
+                <i class="fa-solid fa-gear"></i>
+                Angular
+            </nav>
+            <nav class="navbar-item">
+                <i class="fa-solid fa-circle-plus"></i>
+                Ember
+            </nav>
+            <nav class="navbar-item">
+                <i class="fa-solid fa-pen-nib fa-rotate-90"></i>
+                Design
+            </nav>
+        </div>
+        <div class="contents">
+            <div class="content-item">
+                <h3 class="heading">React</h3>
+                <p class="boby-content">React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</p>
+            </div>
+            <div class="content-item hiden">
+                <h3 class="heading">Angular</h3>
+                <p class="boby-content">Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps.</p>
+            </div>
+            <div class="content-item hiden">
+                <h3 class="heading">Ember</h3>
+                <p class="boby-content">Ember.js is a productive, battle-tested JavaScript framework for building modern web applications. It includes everything you need to build rich UIs that work on any device.</p>
+            </div>
+            <div class="content-item hiden">
+                <h3 class="heading">Vue.js</h3>
+                <p class="boby-content">Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function selectItem() {
+            const navbarItems = document.querySelectorAll('.navbar-item')
+            const contentItem = document.querySelectorAll('.content-item')
+            const lineNavbar = document.querySelector('.line-navbar-drift')
+            for(let i = 0; i < navbarItems.length; i++) {
+                navbarItems[i].onclick = function(e) {
+                    for(let j = 0; j < navbarItems.length; j++) {
+                        navbarItems[j].classList.remove('selected');
+                        contentItem[j].classList.add('hiden')
+                    }
+                    navbarItems[i].classList.add('selected')
+                    contentItem[i].classList.remove('hiden')
+                    lineNavbar.style = 
+                        `
+                            left: calc(${navbarItems[i].offsetLeft}px - ${navbarItems[0].offsetLeft}px);
+                            width: ${navbarItems[i].offsetWidth}px;
+                        `
+                }
+            }
+        }
+        selectItem()
+    </script>
+</body>
+</html>

@@ -6,7 +6,7 @@
 // var name = 'Javascript';
 // var price = 1000;
 // cách cũ
-// var course = {;
+// var course = {
 //     name: name,
 //     price: price,
 //     getName: function() {
