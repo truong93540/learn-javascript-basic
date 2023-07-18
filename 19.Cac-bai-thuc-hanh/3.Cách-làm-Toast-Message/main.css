@@ -1,0 +1,117 @@
+#container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50vh;
+}
+
+.hiden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.btn {
+    margin: 10px;
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    transition: all ease 0.4s;
+}
+
+.btn-success {
+    background-color: #48d866;
+}
+
+.btn-info {
+    background-color: #3086eb;
+}
+
+.btn-warning {
+    background-color: #fdc124;
+}
+
+.itemToastMessage {
+    display: flex;
+    background-color: #fff;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 0;
+    border-radius: 6px;
+    box-shadow: 0 0 7px 0px #ccc;
+    border-left: 5px solid;
+    transition: all ease 1s;
+}
+
+@keyframes slip{
+    from{
+        transform: translateX(calc(100% + 20px));
+    }to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes hiden {
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0;
+    }
+}
+
+.itemToastMessage + .itemToastMessage {
+    margin-top: 10px;
+}
+
+.listToastMessage {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.listToastMessage__icon--box {
+    width: 16.66667%;
+    display: flex;
+    font-size: 24px;
+}
+
+.listToastMessage__icon,
+.listToastMessage__icon--close {
+    margin: auto;
+}
+
+.itemToastMessage__content {
+    width: 83.33333%;
+}
+
+.content__success--heading {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2f3238;
+}
+
+.content__success--description {
+    margin: 6px 0 0 0;
+    color: #8f8f91;
+}
+
+.listToastMessage__icon--close--box {
+    width: 16.66667%;
+    display: flex;
+    font-size: 26px;
+}
+
+.listToastMessage__icon--close {
+    fill: #bfc0c4;
+    cursor: pointer;
+    padding: 6px;
+}

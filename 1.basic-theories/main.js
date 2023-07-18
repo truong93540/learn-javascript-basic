@@ -246,9 +246,9 @@ var title = 'Responsive web disign';
 
 console.log(title.includes('Responsive', 0))// cái thứ 2 là vị trí tìm kiếm, không có thì = 0
 
-// var courses = ['Javascript', 'PHP', 'Dart'];
+var courses = ['Javascript', 'PHP', 'Dart'];
 
-// console.log(courses.includes('Javascript', 0))
+console.log(courses.includes('Javascript', 0))
 
 
 

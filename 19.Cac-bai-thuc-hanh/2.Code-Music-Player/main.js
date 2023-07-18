@@ -3,61 +3,61 @@ const listSong = [
         name: 'VIETNAM - My Home',
         author: 'Masew',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/3/9/d/b39d557a90d6e08307de893ca47b1797.jpg',
-        song: 'https://vnno-pt-1-tf-mp3-s1-zmp3.zmdcdn.me/f32df131e3720a2c5363/5868116865556102695?authen=exp=1689263627~acl=/f32df131e3720a2c5363/*~hmac=c5c100fa0d8a0dee17df2ec8a5f57b91&fs=MTY4OTA5MDgyNzQwMXx3ZWJWNnwwfDExMy4yMy40My4yMjY'
+        song: './audio/vietnammyhome.mp3'
     },
     {
         name: 'Thị Mầu',
         author: 'Hòa Minzy, Masew',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/5/b/5/7/5b57e6c61848cfed2fa19cd31b293898.jpg',
-        song: 'https://vnno-pt-2-tf-mp3-s1-zmp3.zmdcdn.me/a04398b82bf8c2a69be9/807124160692996856?authen=exp=1689263698~acl=/a04398b82bf8c2a69be9/*~hmac=80cbba90df2b3c9678fdbea8855e1fc6&fs=MTY4OTA5MDg5ODU1NXx3ZWJWNnwwfDQyLjExOC43MS44MQ'
+        song: './audio/thimau.mp3'
     },
     {
         name: 'Túy Âm',
         author: 'Xesi, Masew, Nhật Nguyễn',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/covers/f/9/f9c0475ec02716554fba3f63e5b4ac37_1504991428.jpg',
-        song: 'https://vnno-vn-5-tf-mp3-s1-zmp3.zmdcdn.me/1566955f4f1ba645ff0a/5714298647625346942?authen=exp=1689262455~acl=/1566955f4f1ba645ff0a/*~hmac=8a99e30596c5cde0bb4696e924b36cc9&fs=MTY4OTA4OTY1NTUxMXx3ZWJWNnwwfDExOC43MC4xMjYdUngNzI'
+        song: './audio/tuyam.mp3'
     },
     {
         name: 'Ái Nộ',
         author: 'Yến Tattoo, Masew, Great',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/b/1/c/6b1c9deca228d456e63e1c9c0bfd1c28.jpg',
-        song: 'https://vnno-pt-2-tf-mp3-s1-zmp3.zmdcdn.me/19f5997595347c6a2525/8198794806852254584?authen=exp=1689262863~acl=/19f5997595347c6a2525/*~hmac=ba7e4f36fa88336e14f0201725622537&fs=MTY4OTA5MDA2MzAxNHx3ZWJWNnwxMDk1ODQwMjMzfDExMy4yMy41NC43NA'
+        song: './audio/aino.mp3'
     },
     {
         name: 'Buồn Của Anh',
         author: 'K-ICM, Đạt G, Masew',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_png/covers/c/0/c0827e5f2c898fc987e7883151b0476a_1513651595.png',
-        song: 'https://vnno-pt-1-tf-mp3-s1-zmp3.zmdcdn.me/ffe961cab58e5cd0059f/68695268730484457?authen=exp=1689262727~acl=/ffe961cab58e5cd0059f/*~hmac=907ef7726f2d6c6734551d2bc15d8e1b&fs=MTY4OTA4OTkyNzA3OHx3ZWJWNnwwfDExOC42OC41Ni4xMDg'
+        song: './audio/buoncuaanh.mp3'
     },
     {
         name: 'Lửng Lơ',
         author: 'Masew, B Ray, RedT, Ý Tiên',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/3/0/3/3/30332432e55a395202949715ca0162c1.jpg',
-        song: 'https://vnno-pt-3-tf-mp3-s1-zmp3.zmdcdn.me/b321eb371d76f428ad67/5298801484306001359?authen=exp=1689263042~acl=/b321eb371d76f428ad67/*~hmac=0b7ef4676e18276bafcb7e30653cb40e&fs=MTY4OTA5MDI0MjkwNXx3ZWJWNnwxMDQwNDQ1Mjg2fDEdUngNTUdUngNDMdUngMTA3'
+        song: './audio/lunglo.mp3'
     },
     {
         name: 'Độ Tộc 2',
         author: 'Do Mixi, Pháo, Phúc Du, Masew',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/f/e/6/2/fe6231fdfee5449a51e6ed5741ace3c8.jpg',
-        song: 'https://vnno-pt-4-tf-mp3-s1-zmp3.zmdcdn.me/e7e000cc268dcfd3969c/2172183184086830160?authen=exp=1689263015~acl=/e7e000cc268dcfd3969c/*~hmac=eae058cb12ff556a3043729fb5504833&fs=MTY4OTA5MDIxNTg4M3x3ZWJWNnwwfDExOC42OC41Ni4xMDg'
+        song: './audio/dotoc2.mp3'
     },
     {
         name: 'Phố Đã Lên Đèn (Masew Remix)',
         author: 'Masew, Huyền Tâm Môn, Great',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/8/d/978d12830c18df95c26e93e658019166.jpg',
-        song: 'https://vnno-zn-5-tf-mp3-s1-zmp3.zmdcdn.me/33dbfdebe3aa0af453bb/4457018915500166957?authen=exp=1689263806~acl=/33dbfdebe3aa0af453bb/*~hmac=a7e968eba14fccea182f23965d8a8fed&fs=MTY4OTA5MTAwNjUwNXx3ZWJWNnwxMDk1ODQwMjMzfDExMy4yMy41NC43NA'
+        song: './audio/phodalenden.mp3'
     },
     {
         name: 'Cưới Thôi 2',
         author: 'Masew',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/7/7/f/3/77f31ae3da7b0e3bd6c273633499a1f3.jpg',
-        song: 'https://vnno-pt-4-tf-mp3-s1-zmp3.zmdcdn.me/cd1d7fea2aaac3f49abb/6275816395190782091?authen=exp=1689263932~acl=/cd1d7fea2aaac3f49abb/*~hmac=b68d7411d88fb5162d78892c34dfaf5f&fs=MTY4OTA5MTEzMjQ4Nnx3ZWJWNnwxMDk1ODQwMjMzfDExMy4yMy41NC43NA'
+        song: './audio/cuoithoi2.mp3'
     },
     {
         name: 'Kém Duyên',
         author: 'Rum, NIT, Masew',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/covers/8/b/8bdfda3e88db5f9b6bf2ff7d1757e989_1510654845.jpg',
-        song: 'https://vnno-vn-6-tf-mp3-s1-zmp3.zmdcdn.me/24d3f87c2f38c6669f29/2095096462496895008?authen=exp=1689263666~acl=/24d3f87c2f38c6669f29/*~hmac=06f77de88e1eea525f0a4365ea97a8f1&fs=MTY4OTA5MDg2Njk0OXx3ZWJWNnwxMDMxMDUwNDY0fDEdUngNTMdUngNTEdUngNDg'
+        song: './audio/kemduyen.mp3'
     }
 ]
 
