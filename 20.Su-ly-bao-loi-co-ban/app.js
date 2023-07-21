@@ -3,24 +3,39 @@
 // 1. When there is an error => Return error message
 // 2. When valid => Returns nothing (undefined)
 function Validator(options) {
+    function getParent(element, selector) {
+        while(element.parentElement) {
+            if(element.parentElement.matches(selector)){
+                return element.parentElement
+            }
+            element = element.parentElement
+        }
+    }
 
     let selectorRules = {}
 
     // function that does validate
     function validate(inputElement, rule) {
-
-        let errorElement = inputElement.parentElement.querySelector(options.errorSelector)
+        let errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector)
         let errorMessage
 
         // get selector's rules
         let rules = selectorRules[rule.selector]
-        // console.log(rules)
+
         // iterate through each rule and check
         // if there is an error then stop the check 
         for (let i = 0; i < rules.length; i++) {
-            // console.log(rules[i])
-            errorMessage = rules[i](inputElement.value)
-            console.log(errorMessage)
+            switch (inputElement.type) {
+                case 'radio':
+                case 'checkbox':
+                    errorMessage = rules[i](
+                        formElement.querySelector(rule.selector + ':checked')
+                    )
+                    break
+                default:
+                    errorMessage = rules[i](inputElement.value)        
+            }
+            // console.log(errorMessage)
             if(errorMessage) {
                 break;
             }
@@ -28,12 +43,12 @@ function Validator(options) {
 
         if(errorMessage) {
             errorElement.innerText = errorMessage;
-            inputElement.parentElement.classList.add('invalid')
+            getParent(inputElement, options.formGroupSelector).classList.add('invalid')
         }else{
             errorElement.innerText = '';
-            inputElement.parentElement.classList.remove('invalid')
+            getParent(inputElement, options.formGroupSelector).classList.remove('invalid')
         }
-
+        // console.log(!errorMessage)
         return !errorMessage
     }
 
@@ -49,7 +64,7 @@ function Validator(options) {
             options.rules.forEach((rule) => {
                 let inputElement = formElement.querySelector(rule.selector)
                 let isValid = validate(inputElement, rule)
-
+                
                 if(!isValid) {
                     isFormValid = false;
                 }
@@ -60,7 +75,28 @@ function Validator(options) {
                 if(typeof options.onSubmit === 'function') {
                     let enableInputs = formElement.querySelectorAll('[name]:not([disabled])')
                     let formValues = Array.from(enableInputs).reduce((values, input) => {
-                        return (values[input.name] = input.value) && values
+                        switch(input.type) {
+                            case 'radio':
+                                values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value
+                                break;
+                            case 'checkbox':
+                                if(!input.matches(':checked')) {
+                                    values[input.name] = '';
+                                    return values;
+                                }
+
+                                if(!Array.isArray(values[input.name])) {
+                                    values[input.name] = [];
+                                }
+
+                                values[input.name].push(input.value)
+                            case 'file':
+                                values[input.name] = input.files
+                                break;
+                            default:
+                                values[input.name] = input.value
+                        }
+                        return values
                     }, {})
                     options.onSubmit(formValues)
                 }
@@ -83,21 +119,24 @@ function Validator(options) {
                 selectorRules[rule.selector] = [rule.test]
             }
 
-            let inputElement = formElement.querySelector(rule.selector)
-            if(inputElement) {
-                // handle the case when blur from input
-                inputElement.onblur = function() {
-                    // value: inputElement.value
-                    // test func: rule.test
+            let inputElements = formElement.querySelectorAll(rule.selector)
 
-                    validate(inputElement, rule)
+            Array.from(inputElements).forEach((inputElement) => {
+                if(inputElement) {
+                    // handle the case when blur from input
+                    inputElement.onblur = function() {
+                        // value: inputElement.value
+                        // test func: rule.test
+    
+                        validate(inputElement, rule)
+                    }
+                    inputElement.oninput = function(e) {
+                        let errorElement = getParent(inputElement, options.formGroupSelector).querySelector('.form-message')
+                        errorElement.innerText = '';
+                        getParent(inputElement, options.formGroupSelector).classList.remove('invalid')
+                    }
                 }
-                inputElement.oninput = function(e) {
-                    let errorElement = inputElement.parentElement.querySelector('.form-message')
-                    errorElement.innerText = '';
-                    inputElement.parentElement.classList.remove('invalid')
-                }
-            }
+            })
         })
     }
 }
@@ -109,7 +148,8 @@ Validator.isRequired = function(selector, message) {
     return {
         selector,
         test(value) {
-            return value.trim() ? undefined : message || 'Vui lòng nhập trường này'
+            // return value.trim() ? undefined : message || 'Vui lòng nhập trường này'?
+            return value ? undefined : message || 'Vui lòng nhập trường này'
         }
     }
 }
@@ -134,11 +174,11 @@ Validator.minLength = function(selector, min, message) {
     }
 }
 
-Validator.isConfirmed = function(selector, getConfirmedValue, message) {
+Validator.isConfirmed = function(selector, getConfirmeValue, message) {
     return {
         selector,
         test(value) {
-            return (value === getConfirmedValue()) ? undefined : message || 'Giá trị nhập vào không chính xác'
+            return (value === getConfirmeValue()) ? undefined : message || 'Giá trị nhập vào không chính xác'
         }
     }
 }
