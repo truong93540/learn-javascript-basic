@@ -13,6 +13,7 @@ function Validator(options) {
     }
 
     let selectorRules = {}
+    var i=0;
 
     // function that does validate
     function validate(inputElement, rule) {
@@ -20,10 +21,11 @@ function Validator(options) {
         let errorMessage
 
         // get selector's rules
-        let rules = selectorRules[rule.selector]
+        let rules = selectorRules[rule.selector]// lấy ra hàm test
+        // console.log(rules)
 
         // iterate through each rule and check
-        // if there is an error then stop the check 
+        // if there is an error then stop the check
         for (let i = 0; i < rules.length; i++) {
             switch (inputElement.type) {
                 case 'radio':
@@ -37,6 +39,7 @@ function Validator(options) {
             }
             // console.log(errorMessage)
             if(errorMessage) {
+                // chỉ cần có lỗi là thoát khỏi vòng lặp ngay
                 break;
             }
         }
@@ -48,7 +51,6 @@ function Validator(options) {
             errorElement.innerText = '';
             getParent(inputElement, options.formGroupSelector).classList.remove('invalid')
         }
-        // console.log(!errorMessage)
         return !errorMessage
     }
 
@@ -57,47 +59,54 @@ function Validator(options) {
     if(formElement) {
         // When submit form
         formElement.onsubmit = (e) => {
-            e.preventDefault();
+            e.preventDefault();// xóa submit mặc định của trình duyệt
 
             let isFormValid = true;
+            // lặp qua từng cái rule và validate
             // Loop through each rule and validate
             options.rules.forEach((rule) => {
                 let inputElement = formElement.querySelector(rule.selector)
-                let isValid = validate(inputElement, rule)
+                let isValid = validate(inputElement, rule)// hàm này trả về có lỗi hay không có lỗi
                 
-                if(!isValid) {
+                if(!isValid) {// nếu có lỗi thì sai, ko submit
                     isFormValid = false;
                 }
             })
             
-            if(isFormValid) {
+            if(isFormValid) {// trong trường hợp ko sai
                 // submit case with javascript
                 if(typeof options.onSubmit === 'function') {
-                    let enableInputs = formElement.querySelectorAll('[name]:not([disabled])')
+                    let enableInputs = formElement.querySelectorAll('[name]:not([disabled])') // lấy ra những thằng có thuộc tính name không có disable
                     let formValues = Array.from(enableInputs).reduce((values, input) => {
                         switch(input.type) {
                             case 'radio':
-                                values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value
+                                if(formElement.querySelector('input[name="' + input.name + '"]:checked')) {
+                                    values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value
+                                }
                                 break;
                             case 'checkbox':
+                                // nếu không có checked thì trả về luôn
                                 if(!input.matches(':checked')) {
-                                    values[input.name] = '';
+                                    // values[input.name] = '';
                                     return values;
                                 }
-
+                                // lần đầu tiên chưa là array thì tạo cho nó là array, các lần thứ 2 ko tạo array
                                 if(!Array.isArray(values[input.name])) {
                                     values[input.name] = [];
                                 }
-
+                                // console.log(input.value)
                                 values[input.name].push(input.value)
+                                break;
                             case 'file':
                                 values[input.name] = input.files
                                 break;
                             default:
                                 values[input.name] = input.value
                         }
+                        // console.log(values[input.name])
                         return values
                     }, {})
+                    // console.log(formValues)
                     options.onSubmit(formValues)
                 }
                 // submit case with default behavior
@@ -107,18 +116,18 @@ function Validator(options) {
             }
         }
 
-
         // Loop through each rule and process (listen for blur events, input,...)
         options.rules.forEach(function(rule) {
 
             // save the rules for each input
             
             if(Array.isArray(selectorRules[rule.selector])) {
-                selectorRules[rule.selector].push(rule.test)
+                selectorRules[rule.selector].push(rule.test)// chuyền hàm test vào trong object
             }else{
                 selectorRules[rule.selector] = [rule.test]
             }
 
+            // Only one element, but has two rules.
             let inputElements = formElement.querySelectorAll(rule.selector)
 
             Array.from(inputElements).forEach((inputElement) => {
@@ -127,11 +136,11 @@ function Validator(options) {
                     inputElement.onblur = function() {
                         // value: inputElement.value
                         // test func: rule.test
-    
-                        validate(inputElement, rule)
+                    
+                        validate(inputElement, rule)// trả về có lỗi hay không có lỗi
                     }
-                    inputElement.oninput = function(e) {
-                        let errorElement = getParent(inputElement, options.formGroupSelector).querySelector('.form-message')
+                    inputElement.oninput = function(e) {// khi bắt đầu nhập thì tạm thời xóa lỗi
+                        let errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector)
                         errorElement.innerText = '';
                         getParent(inputElement, options.formGroupSelector).classList.remove('invalid')
                     }
